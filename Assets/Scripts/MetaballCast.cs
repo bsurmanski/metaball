@@ -20,7 +20,7 @@ public class MetaballCast : MonoBehaviour
 	void Update ()
 	{
 		Material mat = this.GetComponent<Renderer> ().material;
-		Vector4[] mb_vecs = new Vector4[10];
+		Vector4[] mb_vecs = new Vector4[64];
 		int i = 0;
 		foreach (Metaball b in metaballs) {
 				mb_vecs [i] = new Vector4 (b.transform.position.x, 
@@ -29,7 +29,7 @@ public class MetaballCast : MonoBehaviour
 					b.radius);
 			i++;
 		}
-		for (; i < 10; i++) {
+		for (; i < 64; i++) {
 			mb_vecs [i] = Vector4.zero; // reset radius of if unused;
 		}
 		mat.SetVectorArray ("metaballs", mb_vecs);
